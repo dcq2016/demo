@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        *{ margin:0; padding:0;}
+        body{ background:#9d9d9d;}
+        .text{ width:200px; height:60px; line-height:60px; font-size:30px; font-weight:bold; text-align:center; margin:100px auto; background:-webkit-linear-gradient(-45deg,red,green,yellow,black); -webkit-background-clip:text; color:rgba(0,0,0,0); position:relative; /*-webkit-mask:*/}
+        .text_box{ width:50px; height:60px; background:-webkit-repeating-linear-gradient(-45deg,#000 20%,#fff 80%,#000 80%); position:absolute; top:0; left:-50px;}
+    </style>
+    <script>
+        window.onload=function(){
+            var oText=document.querySelector('.text');
+            var oTextBox=document.querySelector('.text_box');
+            var left=0;
+            setInterval(function(){
+                left+=5;
+                if(left>200){
+                    left=-50;
+                }
+                oTextBox.style.left=left+'px';
+                //oTextBox.backgrounk='-webkit-linear-gradient(#red)';
+                oText.style.WebkitMask=oTextBox.style.background;
+            },30)
+
+        }
+    </script>
+</head>
+<body>
+    <div class="text">移动滑块解锁<div class="text_box"></div></div>
+
+</body>
+</html>

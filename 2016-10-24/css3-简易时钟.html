@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head lang="zh">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        *{ margin:0; padding:0;}
+        .clock{ position:relative; width:300px; height:300px; border:2px solid #000; border-radius:50%; margin:100px auto;}
+        .clock span{ position:absolute; left:50%; top:0; margin-left:-1px; width:2px; height:8px; background:#000; -webkit-transform-origin:center 150px;}
+        .clock span.big_clock{ width:6px; height:14px; margin-left:-3px;}
+        .clock span.big_clock i{ position:absolute; left:50%; top:15px; margin-left:-15px; width:30px; font-style:normal; text-align:center;}
+        .center{ position:absolute; left:50%; top:50%; margin-top:-7px; margin-left:-7px; width:14px; height:14px; background:-webkit-radial-gradient(#999,#333); border-radius:50%;}
+        .hou{ position:absolute; left:50%; margin-left:-3px; top:80px; width:6px; height:70px; background:#000; border-radius:50% 50% 0 0; -webkit-transform-origin:bottom;}
+        .min{ position:absolute; left:50%; margin-left:-2px; top:50px; width:4px; height:100px; background:#333; border-radius:50% 50% 0 0; -webkit-transform-origin:bottom;}
+        .sec{ position:absolute; left:50%; margin-left:-1px; top:30px; width:2px; height:120px; background:#f00; border-radius:50% 50% 0 0; -webkit-transform-origin:bottom;}
+    </style>
+    <script>
+        window.onload=function(){
+            var oClock=document.querySelector('.clock');
+            var oHou=document.querySelector('.hou');
+            var oMin=document.querySelector('.min');
+            var oSec=document.querySelector('.sec');
+
+            function clock(){
+                var oDate=new Date();
+                var h=oDate.getHours();
+                var m=oDate.getMinutes();
+                var s=oDate.getSeconds();
+                var ss=oDate.getMilliseconds();
+                oHou.style.webkitTransform='rotate('+(h*30+m/60*30)+'deg)';
+                oMin.style.webkitTransform='rotate('+(m*6+s/60*6)+'deg)';
+                oSec.style.webkitTransform='rotate('+(s*6+ss/1000*6)+'deg)';
+            }
+            clock();
+            setInterval(clock,1);
+
+            var N=60;
+            for(var i=0;i<N;i++){
+                var oS=document.createElement('span');
+                oClock.appendChild(oS);
+                oS.style.webkitTransform='rotate('+i*6+'deg)';
+
+                if(i%5==0){
+                    oS.className='big_clock';
+                    oS.innerHTML='<i>'+(i/5||12)+'</i>';
+                    var oI=oS.children[0];
+                    oI.style.webkitTransform='rotate('+-i*6+'deg)';
+                }
+            }
+
+        }
+
+    </script>
+</head>
+<body>
+<div class="clock">
+    <div class="hou"></div>
+    <div class="min"></div>
+    <div class="sec"></div>
+    <div class="center"></div>
+
+</div>
+</body>
+</html>

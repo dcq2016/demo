@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        *{ margin:0; padding:0;}
+        body{ background:url(images/bg.jpg) no-repeat center center; background-size:100%;}
+        .list{ width:880px; height:auto; margin:300px auto 0;}
+        .list li{ float:left; width:200px; height:200px; margin-right:20px; list-style:none; position:relative; top:0; -webkit-transition:.8s all ease; -webkit-transform-origin:100px 100px;}
+        .list li img.img1{ width:194px; height:194px; position:absolute; left:3px; top:3px; -webkit-transition:.8s all ease;}
+        .list li img.img2{ width:200px; height:200px; position:absolute; left:0; top:0; -webkit-transition:.8s all ease;}
+        .list li:hover{}
+        .list li:hover img.img1{ -webkit-transform:translate(0px,-30px) rotate(-180deg);}
+        .list li:hover img.img2{ -webkit-transform:translate(0px,40px);}
+    </style>
+    <script>
+
+    </script>
+</head>
+<body>
+    <div class="list">
+        <ul>
+            <li>
+                <img class="img1" src="images/cd.png" alt=""/>
+                <img class="img2" src="images/img_01.jpg" alt=""/>
+            </li>
+            <li>
+                <img class="img1" src="images/cd.png" alt=""/>
+                <img class="img2" src="images/img_01.jpg" alt=""/>
+            </li>
+            <li>
+                <img class="img1" src="images/cd.png" alt=""/>
+                <img class="img2" src="images/img_01.jpg" alt=""/>
+            </li>
+            <li>
+                <img class="img1" src="images/cd.png" alt=""/>
+                <img class="img2" src="images/img_01.jpg" alt=""/>
+            </li>
+        </ul>
+    </div>
+</body>
+</html>

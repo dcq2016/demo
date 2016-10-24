@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        *{ margin:0; padding:0; font-family:"microsoft yahei";}
+        div{ width:50px; height:50px; background:#ffdc2c; border-radius:50%; box-shadow:0 0 50px #ff5f12; position:absolute; left:0; top:0;}
+        p{ color:blue; margin:200px auto; font-size:60px; text-align:center;}
+    </style>
+    <script>
+        window.onload=function(){
+            var oSun=document.querySelector('div');
+            var oP=document.querySelector('p');
+
+            document.onmousemove=function(ev){
+                oSun.style.left=ev.pageX-oSun.offsetWidth/2+'px';
+                oSun.style.top=ev.pageY-oSun.offsetHeight/2+'px';
+
+                var x=oP.offsetLeft+oP.offsetWidth/2-ev.pageX;
+                var y=oP.offsetTop+oP.offsetHeight/2-ev.pageY;
+
+                var c=Math.sqrt(x*x+y*y);
+                oP.style.textShadow=x/3+'px '+y/3+'px '+c/10+'px #000';
+            }
+        }
+    </script>
+</head>
+<body>
+<div></div>
+<p>文字阴影</p>
+</body>
+</html>
